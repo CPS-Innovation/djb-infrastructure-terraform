@@ -1,0 +1,25 @@
+#terraform
+.terraform
+terraform.tfstate
+*.tfstate*
+*.tfstate.*
+.debug.sh
+_backend.tf
+
+# tags
+[._]*.un~
+
+# vscode
+.vscode/*
+!.vscode/task.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+**/.terragrunt-cache
+skip-deprovision
+**/_pycache__
+
+# draft files
+*.tfx
+
+*.lint.sh

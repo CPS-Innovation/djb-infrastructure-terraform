@@ -1,0 +1,28 @@
+---
+trigger:
+  branches:
+    include:
+      - 'main'
+
+pool: 'sc-djb-preprod'
+
+jobs:
+  - template: templates/terragrunt_apply.yml
+    parameters:
+      environment: dev
+      module: base
+      subscription: "DigitalJuryBundle (Non-Production)"
+      backend_storage_resource_group: "rg-djb-dev"
+      backend_storage_account_name: "sadjbdevtfstate"
+      application_name: "base"
+      tfmodules_network: "network"
+
+  - template: templates/terragrunt_apply.yml
+    parameters:
+      environment: dev
+      module: applications
+      subscription: "DigitalJuryBundle (Non-Production)"
+      backend_storage_resource_group: "rg-djb-dev"
+      backend_storage_account_name: "sadjbdevtfstate"
+      application_name: "applications"
+      tfmodules_network: "network"
