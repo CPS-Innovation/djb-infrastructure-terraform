@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "rg" {
-  name     = var.rg
+  name     = var.main_rg
   location = var.location
 }
 
@@ -24,11 +24,9 @@ resource "azurerm_subnet" "subnets" {
       }
     }
   }
-
-  depends_on = [azurerm_resource_group.rg]
 }
 
-resource "azurerm_subnet_network_security_group_association" "nsg_hsk_subnet_assoc" {
+resource "azurerm_subnet_network_security_group_association" "nsg_djb_subnet_assoc" {
   for_each = var.subnets
 
   subnet_id                 = azurerm_subnet.subnets[each.key].id
@@ -37,7 +35,7 @@ resource "azurerm_subnet_network_security_group_association" "nsg_hsk_subnet_ass
   depends_on = [azurerm_subnet.subnets]
 }
 
-resource "azurerm_subnet_route_table_association" "hsk-rt" {
+resource "azurerm_subnet_route_table_association" "djb_rt" {
   for_each = var.subnets
 
   subnet_id      = azurerm_subnet.subnets[each.key].id
