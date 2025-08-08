@@ -5,19 +5,16 @@ trigger:
       - main
   paths:
    include:
-    - environments/staging/*
+    - environments/dev/*
    exclude:
     - environments/production/*
 
 pool: 'sc-djb-preprod'
 
-variables:
-  - group: hsk-infra-staging
-
 jobs:
   - template: templates/terragrunt_plan.yml
     parameters:
-      environment: staging
+      environment: dev
       module: base
       subscription: "DigitalJuryBundle (Non-Production)"
       backend_storage_resource_group: "rg-djb-dev"
@@ -27,7 +24,7 @@ jobs:
 
   - template: templates/terragrunt_plan.yml
     parameters:
-      environment: staging
+      environment: dev
       module: applications
       subscription: "DigitalJuryBundle (Non-Production)"
       backend_storage_resource_group: "rg-djb-dev"
