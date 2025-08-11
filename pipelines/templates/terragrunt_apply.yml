@@ -63,7 +63,9 @@ jobs:
         displayName: "terraform | fmt scan"
         workingDirectory: '$(System.DefaultWorkingDirectory)/environments/${{parameters.environment}}/${{parameters.module}}'
 
-      - bash: terraform validate
+      - bash:  |
+          terraform init
+          terraform validate
         displayName: Terraform > Validate Config
         workingDirectory: '$(System.DefaultWorkingDirectory)/environments/${{parameters.environment}}/${{parameters.module}}'
 
