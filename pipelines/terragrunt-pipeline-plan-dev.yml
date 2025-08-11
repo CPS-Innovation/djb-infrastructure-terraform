@@ -6,10 +6,8 @@ trigger:
   paths:
    include:
     - environments/dev/*
-   exclude:
-    - environments/production/*
 
-pool: 'sc-djb-preprod'
+pool: 'DJB PreProd Pool'
 
 jobs:
   - template: templates/terragrunt_plan.yml
