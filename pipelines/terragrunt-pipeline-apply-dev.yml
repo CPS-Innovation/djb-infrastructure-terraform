@@ -21,7 +21,7 @@ jobs:
     parameters:
       environment: dev
       module: applications
-      subscription: "DigitalJuryBundle (Non-Production)"
+      subscription: "DJB PreProd (via service principal)"
       backend_storage_resource_group: "rg-djb-dev"
       backend_storage_account_name: "sadjbdevtfstate"
       application_name: "applications"
