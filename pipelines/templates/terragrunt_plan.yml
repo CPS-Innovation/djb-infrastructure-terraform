@@ -63,18 +63,9 @@ jobs:
 
       - bash: |
           terraform fmt
+          terragrunt fmt
         displayName: "terraform | fmt scan"
         workingDirectory: '$(System.DefaultWorkingDirectory)/environments/${{parameters.environment}}/${{parameters.module}}'
-
-      - bash: |
-          terraform init
-          terraform validate
-        displayName: Terraform > Validate Config
-        workingDirectory: '$(System.DefaultWorkingDirectory)/environments/${{parameters.environment}}/${{parameters.module}}'
-
-      # - bash: checkov --directory . '$(System.DefaultWorkingDirectory)/modules/${{parameters.tfmodules_network}}'
-      #   displayName: Checkov > Check Modules
-      #   workingDirectory: '$(System.DefaultWorkingDirectory)/modules/${{parameters.tfmodules_network}}'
 
       - bash: |
           curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
@@ -82,10 +73,19 @@ jobs:
         displayName: "tflint | install"
 
       - bash: |
-          PLAN_PATH='$(System.DefaultWorkingDirectory)/environments/${{parameters.environment}}/${{parameters.module}}/tf.plan'
-          # dir=$(System.DefaultWorkingDirectory)/environments/${{parameters.environment}}/${{parameters.module}}
+          terraform init
+          terragrunt init
+          terraform validate
+        displayName: Terraform > Validate Config and init
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environments/${{parameters.environment}}/${{parameters.module}}'
 
-          # terraform init --reconfigure $dir
+      # - bash: checkov --directory . '$(System.DefaultWorkingDirectory)/modules/${{parameters.tfmodules_network}}'
+      #   displayName: Checkov > Check Modules
+      #   workingDirectory: '$(System.DefaultWorkingDirectory)/modules/${{parameters.tfmodules_network}}'
+
+      - bash: |
+          PLAN_PATH='$(System.DefaultWorkingDirectory)/environments/${{parameters.environment}}/${{parameters.module}}/tf.plan'
+
           (terragrunt plan -out $PLAN_PATH --detailed-exitcode) || error_code=$?
                     (terragrunt plan -out $PLAN_PATH --detailed-exitcode) || error_code=$?
           if [[ "${error_code}" -eq 1 ]]; then
