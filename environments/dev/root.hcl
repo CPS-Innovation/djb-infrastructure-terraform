@@ -9,7 +9,7 @@ remote_state {
 
   config = {
     key                  = "${path_relative_to_include()}/terraform.tfstate"
-    resource_group_name  = "rg-djb-dev"
+    resource_group_name  = "rg-djb-devops-dev"
     storage_account_name = "sadjbdevtfstate"
     container_name       = "tfstate"
   }

@@ -10,20 +10,20 @@ trigger:
 pool: 'DJB PreProd Pool'
 
 jobs:
-  - template: templates/terragrunt_plan.yml
-    parameters:
-      environment: dev
-      module: base
-      subscription: "DJB PreProd (via service principal)"
-      backend_storage_resource_group: "rg-djb-dev"
-      backend_storage_account_name: "sadjbdevtfstate"
-      application_name: "base"
+  # - template: templates/terragrunt_plan.yml
+  #   parameters:
+  #     environment: dev
+  #     module: base
+  #     subscription: "DJB PreProd (via service principal)"
+  #     backend_storage_resource_group: "rg-djb-dev"
+  #     backend_storage_account_name: "sadjbdevtfstate"
+  #     application_name: "base"
 
   - template: templates/terragrunt_plan.yml
     parameters:
       environment: dev
       module: applications
       subscription: "DJB PreProd (via service principal)"
-      backend_storage_resource_group: "rg-djb-dev"
+      backend_storage_resource_group: "rg-djb-devops-dev"
       backend_storage_account_name: "sadjbdevtfstate"
       application_name: "applications"
