@@ -62,6 +62,7 @@ jobs:
 
       - bash:  |
           terraform init
+          terragrunt init
           terraform validate
         displayName: Terraform > Validate Config
         workingDirectory: '$(System.DefaultWorkingDirectory)/environments/${{parameters.environment}}/${{parameters.module}}'
