@@ -14,9 +14,6 @@ parameters:
   - name: dependsOnTfModules
     type: object
     default: []
-  - name: tfmodules_network
-    type: string
-
 
 jobs:
   - job: plan_terragrunt_${{parameters.module}}_${{parameters.environment}}
