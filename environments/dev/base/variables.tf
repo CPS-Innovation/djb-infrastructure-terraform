@@ -44,10 +44,10 @@ variable "vnet_name" {
   description = "The name of the virtual network in which to create the subnet"
 }
 
-variable "rt_djb_name" {
-  type        = string
-  description = "Name of the Routing Table"
-}
+# variable "rt_djb_name" {
+#   type        = string
+#   description = "Name of the Routing Table"
+# }
 
 variable "subnets" {
   type = map(object(

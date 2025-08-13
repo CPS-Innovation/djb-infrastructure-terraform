@@ -35,11 +35,11 @@ resource "azurerm_subnet" "subnets" {
 #   depends_on = [azurerm_subnet.subnets]
 # }
 
-resource "azurerm_subnet_route_table_association" "djb_rt" {
-  for_each = var.subnets
+# resource "azurerm_subnet_route_table_association" "djb_rt" {
+#   for_each = var.subnets
 
-  subnet_id      = azurerm_subnet.subnets[each.key].id
-  route_table_id = var.route_table_id
+#   subnet_id      = azurerm_subnet.subnets[each.key].id
+#   route_table_id = var.route_table_id
 
-  depends_on = [azurerm_subnet.subnets]
-}
+#   depends_on = [azurerm_subnet.subnets]
+# }
