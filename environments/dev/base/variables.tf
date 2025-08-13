@@ -58,7 +58,7 @@ variable "subnets" {
   }))
 }
 
-variable "nsg_djb_name" {
-  type        = string
-  description = "Name of the Network Security Group"
-}
+# variable "nsg_djb_name" {
+#   type        = string
+#   description = "Name of the Network Security Group"
+# }

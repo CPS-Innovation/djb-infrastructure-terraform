@@ -29,10 +29,10 @@ variable "service_endpoints" {
   description = "The list of Service endpoints to associate with the subnet"
 }
 
-variable "network_security_group_id" {
-  type        = string
-  description = "The ID of the Network Security Group which should be attached to the Network Interface. Changing this forces a new resource to be created"
-}
+# variable "network_security_group_id" {
+#   type        = string
+#   description = "The ID of the Network Security Group which should be attached to the Network Interface. Changing this forces a new resource to be created"
+# }
 
 variable "route_table_id" {
   type        = string
