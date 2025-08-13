@@ -83,8 +83,8 @@ jobs:
 
       - bash: |
           PLAN_PATH='$(System.DefaultWorkingDirectory)/environments/${{parameters.environment}}/${{parameters.module}}/tf.plan'
-          terraform init
 
+          terraform init -reconfigure
           (terragrunt plan -out $PLAN_PATH --detailed-exitcode) || error_code=$?
                     (terragrunt plan -out $PLAN_PATH --detailed-exitcode) || error_code=$?
           if [[ "${error_code}" -eq 1 ]]; then
