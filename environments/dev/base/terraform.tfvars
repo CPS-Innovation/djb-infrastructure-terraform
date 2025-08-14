@@ -16,7 +16,7 @@ subnets = {
 }
 
 ######################  /*nsg*/ ######################
-nsg_name                = "djb-hsk"
+nsg_name                = "djb-nsg"
 location                = "UKSouth"
 environment             = "dev"
 main_rg_name            = "rg-djb-dev"
