@@ -8,16 +8,6 @@ variable "virtual_network_name" {
   description = "The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created"
 }
 
-variable "address_prefixes" {
-  type        = string
-  description = "The address prefixes to use for the subnet"
-}
-
-variable "service_endpoints" {
-  type        = string
-  description = "The list of Service endpoints to associate with the subnet"
-}
-
 variable "subnets" {
   type = map(object(
     {

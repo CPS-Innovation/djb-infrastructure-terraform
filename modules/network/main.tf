@@ -4,8 +4,8 @@ resource "azurerm_subnet" "subnets" {
   name                 = each.key
   resource_group_name  = var.vnet_rg # This must be the resource group that the virtual network resides in
   virtual_network_name = var.virtual_network_name
-  address_prefixes     = [var.address_prefixes]
-  service_endpoints    = [var.service_endpoints]
+  address_prefixes     = each.value.address_prefixes
+  service_endpoints    = each.value.service_endpoints
 
   dynamic "delegation" {
     for_each = each.value.service_delegation == true ? [1] : []
