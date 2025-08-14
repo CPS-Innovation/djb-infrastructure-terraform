@@ -49,11 +49,6 @@ variable "security_rule_direction" {
   description = "The security rule direction"
 }
 
-variable "environment" {
-  type        = string
-  description = "The deployment environment"
-}
-
 variable "security_rule_protocol" {
   type        = string
   description = "The security rule protocol"

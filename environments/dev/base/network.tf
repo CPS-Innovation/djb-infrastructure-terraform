@@ -6,7 +6,6 @@ module "dev_network" {
 
   nsg_name                = var.nsg_name
   location                = var.location
-  environment             = var.environment
   main_rg_name            = var.main_rg_name
   security_rule_name      = var.security_rule_name
   security_rule_priority  = var.security_rule_priority
