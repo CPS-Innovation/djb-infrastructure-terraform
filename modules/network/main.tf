@@ -21,6 +21,29 @@ resource "azurerm_subnet" "subnets" {
   }
 }
 
+# Network Security Group
+resource "azurerm_network_security_group" "nsg" {
+  name                = var.nsg_name
+  location            = var.location
+  resource_group_name = var.main_rg_name
+
+  security_rule {
+    name                       = var.security_rule_name
+    priority                   = var.security_rule_priority
+    direction                  = var.security_rule_direction
+    access                     = "Allow"
+    protocol                   = var.security_rule_protocol
+    source_port_range          = "*"
+    destination_port_range     = "*"
+    source_address_prefix      = ["10.7.152.0/23", "10.7.150.0/23"]
+    destination_address_prefix = "*"
+  }
+
+  tags = {
+    environment = var.environment
+  }
+}
+
 # resource "azurerm_subnet_network_security_group_association" "nsg_djb_subnet_assoc" {
 #   for_each = var.subnets
 

@@ -1,3 +1,4 @@
+######################  /*subnet*/  ######################
 vnet_rg   = "rg-djb-preprod"
 vnet_name = "vn-djb-preprod" #created by the architet team
 
@@ -13,3 +14,13 @@ subnets = {
     service_delegation = true
   }
 }
+
+######################  /*nsg*/ ######################
+nsg_name                = "djb-hsk"
+location                = "UKSouth"
+environment             = "dev"
+main_rg_name            = "rg-djb-dev"
+security_rule_name      = "AllowAmzWorkspcCustom443Inbound"
+security_rule_priority  = 100
+security_rule_protocol  = "Any"
+security_rule_direction = "Inbound"
