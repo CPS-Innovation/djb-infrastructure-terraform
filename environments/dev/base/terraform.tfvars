@@ -22,5 +22,5 @@ environment             = "dev"
 main_rg_name            = "rg-djb-dev"
 security_rule_name      = "AllowAmzWorkspcCustom443Inbound"
 security_rule_priority  = 100
-security_rule_protocol  = "Any"
+security_rule_protocol  = "Tcp"
 security_rule_direction = "Inbound"
