@@ -1,8 +1,3 @@
-resource "azurerm_resource_group" "rg" {
-  name     = var.main_rg
-  location = var.location
-}
-
 resource "azurerm_subnet" "subnets" {
   for_each = var.subnets
 

@@ -1,7 +1,5 @@
 vnet_rg   = "rg-djb-preprod"
-location  = "UK South"
 vnet_name = "vn-djb-preprod" #created by the architet team
-main_rg   = "rg-djb-dev"
 
 subnets = {
   subnet-djb-service-dev = {
