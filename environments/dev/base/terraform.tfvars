@@ -18,8 +18,8 @@ subnets = {
 ######################  /*nsg*/ ######################
 nsg_name                = "djb-nsg"
 location                = "UKSouth"
-environment             = "dev"
 main_rg_name            = "rg-djb-preprod"
+rt_djb_name             = "RT-djb-preprod"
 security_rule_name      = "AllowAmzWorkspcCustom443Inbound"
 security_rule_priority  = 100
 security_rule_protocol  = "Tcp"

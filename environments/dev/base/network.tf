@@ -7,6 +7,7 @@ module "dev_network" {
   nsg_name                = var.nsg_name
   location                = var.location
   main_rg_name            = var.main_rg_name
+  route_table_id          = data.azurerm_route_table.djb-rt.id
   security_rule_name      = var.security_rule_name
   security_rule_priority  = var.security_rule_priority
   security_rule_protocol  = var.security_rule_protocol
