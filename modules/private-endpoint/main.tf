@@ -1,6 +1,6 @@
 
 resource "azurerm_private_endpoint" "sa" {
-  name                = "pe-djb-${var.environment}"
+  name                = var.pe_sa_name
   location            = var.location
   resource_group_name = var.main_rg_name
   subnet_id           = var.subnet_id

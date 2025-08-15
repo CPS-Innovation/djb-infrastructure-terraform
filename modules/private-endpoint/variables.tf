@@ -32,3 +32,8 @@ variable "storage_account_id" {
   type        = string
   description = "Storage accound name"
 }
+
+variable "pe_sa_name" {
+  type        = string
+  description = "The name of the Storage Account"
+}
