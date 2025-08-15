@@ -24,11 +24,11 @@ variable "private_dns_zone_ids" {
 }
 
 variable "storage_account_name" {
-  type = string
-  description = "Storage account name" 
+  type        = string
+  description = "Storage account name"
 }
 
 variable "storage_account_id" {
-  type = string
+  type        = string
   description = "Storage accound name"
 }
