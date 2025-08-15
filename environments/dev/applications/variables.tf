@@ -5,5 +5,10 @@ variable "main_rg_name" {
 
 variable "location" {
   type        = string
-  description = "The location of the virtual network"
+  description = "Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created"
+}
+
+variable "asp_name" {
+  type        = string
+  description = "Specifies the name of the App Service Plan component. Changing this forces a new resource to be created."
 }
