@@ -67,10 +67,6 @@ jobs:
         displayName: Terraform > Validate Config
         workingDirectory: '$(System.DefaultWorkingDirectory)/environments/${{parameters.environment}}/${{parameters.module}}'
 
-      # - bash: checkov --directory . '$(System.DefaultWorkingDirectory)/modules/${{parameters.tfmodules_network}}'
-      #   displayName: Checkov > Check Modules
-      #   workingDirectory: '$(System.DefaultWorkingDirectory)/modules/${{parameters.tfmodules_network}}'
-
       - bash: |
           PLAN_PATH='$(System.DefaultWorkingDirectory)/environments/${{parameters.environment}}/${{parameters.module}}/tf.plan'
           (terragrunt plan -out $PLAN_PATH --detailed-exitcode) || error_code=$?
