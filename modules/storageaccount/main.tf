@@ -9,7 +9,5 @@ resource "azurerm_storage_account" "sa" {
 
   public_network_access_enabled = false
 
-  tags = {
-    environment = var.environment
-  }
+  tags = var.tags
 }
