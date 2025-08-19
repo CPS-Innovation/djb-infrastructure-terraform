@@ -10,5 +10,10 @@ variable "location" {
 
 variable "main_rg_name" {
   type        = string
-  description = "The name of the resource group in which to create the subnet"
+  description = "The name of the resource group in which to create the resource."
+}
+
+variable "tags" {
+  type = map(string)
+  description = "A map of tag names to values."
 }

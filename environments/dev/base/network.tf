@@ -12,4 +12,8 @@ module "dev_network" {
   security_rule_priority  = var.security_rule_priority
   security_rule_protocol  = var.security_rule_protocol
   security_rule_direction = var.security_rule_direction
+
+  tags = {
+    environment = "preprod"
+  }
 }

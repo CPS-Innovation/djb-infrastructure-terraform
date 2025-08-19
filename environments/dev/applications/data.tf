@@ -1,8 +1,12 @@
-data "azurerm_private_dns_zone" "blob_djb_preprod" {
-  name                = "privatelink.blob.core.windows.net"
-  resource_group_name = "rg-djb-preprod"
+data "azurerm_private_dns_zone" "dns" {
+  for_each = {
+    blob         = "privatelink.blob.core.windows.net"
+    sites        = "privatelink.azurewebsites.net"
+  }
+  
+  name                = each.value
+  resource_group_name = var.vnet_rg
 }
-
 
 # All subnets of the vnet above.
 # To reference a specific subnet use data.azurerm_subnet.base["<subnet-name>"].id
