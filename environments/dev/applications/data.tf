@@ -1,9 +1,9 @@
 data "azurerm_private_dns_zone" "dns" {
   for_each = {
-    blob         = "privatelink.blob.core.windows.net"
-    sites        = "privatelink.azurewebsites.net"
+    blob  = "privatelink.blob.core.windows.net"
+    sites = "privatelink.azurewebsites.net"
   }
-  
+
   name                = each.value
   resource_group_name = var.vnet_rg
 }

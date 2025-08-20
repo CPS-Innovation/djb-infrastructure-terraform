@@ -40,7 +40,7 @@ variable "location" {
 }
 
 variable "tags" {
-  type = map(string)
+  type        = map(string)
   description = "A map of tag names to values."
 }
 

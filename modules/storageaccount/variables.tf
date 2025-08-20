@@ -1,5 +1,5 @@
 variable "tags" {
-  type = map(string)
+  type        = map(string)
   description = "A map of tag names to values."
 }
 
@@ -19,7 +19,7 @@ variable "sa_name" {
 }
 
 variable "pe_subnet_id" {
-  type = string
+  type        = string
   description = "The id of the subnet within which the Private Endpoint IP is located."
 }
 

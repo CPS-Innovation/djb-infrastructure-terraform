@@ -1,7 +1,7 @@
 resource "azurerm_private_endpoint" "fa" {
   name                = "pe-${azurerm_linux_function_app.fa.name}"
   location            = var.location
-  resource_group_name = module.rg.rg_name
+  resource_group_name = var.main_rg_name
   subnet_id           = var.pe_subnet_id
 
   private_service_connection {
