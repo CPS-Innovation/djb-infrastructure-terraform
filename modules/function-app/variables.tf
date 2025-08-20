@@ -1,10 +1,10 @@
 variable "tags" {
-  type = map(string)
+  type        = map(string)
   description = "A map of tag names to values."
 }
 
 variable "fa_name" {
-  type = string
+  type        = string
   description = "The name of the function app."
 }
 
@@ -19,42 +19,42 @@ variable "location" {
 }
 
 variable "sa_name" {
-  type = string
+  type        = string
   description = "The name of the storage account associated with the function app."
 }
 
 variable "sa_id" {
-  type = string
+  type        = string
   description = "The resource id of the associated storage account."
 }
 
 variable "sa_roles" {
-  type = list(string)
+  type        = list(string)
   description = "A list of roles to assign to the function app for the storage account scope."
 }
 
 variable "asp_id" {
-  type = string
+  type        = string
   description = "The resource id of the App Service Plan within which the function app runs."
 }
 
 variable "fa_subnet_id" {
-  type = string
+  type        = string
   description = "The resource id of the subnet through which the function app is integrated into the VNet."
 }
 
 variable "ai_connection_string" {
-  type = string
+  type        = string
   description = "The connection string for the application insights instance to associate with the function app."
 }
 
 variable "cors_allowed_origins" {
-  type = list(string)
+  type        = list(string)
   description = "A list of origins that should be allowed to make cross-origin calls."
 }
 
 variable "pe_subnet_id" {
-  type = string
+  type        = string
   description = "The id of the subnet within which the Private Endpoint IP is located."
 }
 

@@ -1,7 +1,7 @@
 resource "azurerm_linux_function_app" "fa" {
-  name                = var.fa_name
-  resource_group_name = var.main_rg_name
-  location            = var.location
+  name                          = var.fa_name
+  resource_group_name           = var.main_rg_name
+  location                      = var.location
   storage_account_name          = var.sa_name
   storage_uses_managed_identity = true
   service_plan_id               = var.asp_id
@@ -35,9 +35,9 @@ resource "azurerm_linux_function_app" "fa" {
   tags = var.tags
 
   lifecycle {
-    ignore_changes = [ 
+    ignore_changes = [
       app_settings,
-      tags 
+      tags
     ]
   }
 }
