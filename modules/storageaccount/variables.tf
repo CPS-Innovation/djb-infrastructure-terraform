@@ -17,3 +17,13 @@ variable "sa_name" {
   type        = string
   description = "The name of the Storage Account"
 }
+
+variable "pe_subnet_id" {
+  type = string
+  description = "The id of the subnet within which the Private Endpoint IP is located."
+}
+
+variable "private_dns_zone_ids" {
+  type        = list(string)
+  description = "Specifies the list of Private DNS Zones to include within the private_dns_zone_group"
+}
