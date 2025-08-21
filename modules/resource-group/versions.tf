@@ -10,6 +10,5 @@ terraform {
 }
 
 provider "azurerm" {
-  alias = "rg_module"
   features {}
 }
