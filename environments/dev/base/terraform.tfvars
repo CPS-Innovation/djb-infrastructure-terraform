@@ -15,6 +15,11 @@ subnets = {
   }
 }
 
+######################  /*dns*/  ######################
+private_dns_zones = [
+  "privatelink.azurewebsites.net"
+]
+
 ######################  /*nsg*/ ######################
 nsg_name                = "djb-nsg"
 location                = "UKSouth"
