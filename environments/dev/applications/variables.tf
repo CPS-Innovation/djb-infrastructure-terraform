@@ -21,4 +21,5 @@ variable "vnet_rg" {
 variable "fa_cors_allowed_origins" {
   type        = list(string)
   description = "A list of origins that should be allowed to make cross-origin calls."
+  nullable    = true
 }
