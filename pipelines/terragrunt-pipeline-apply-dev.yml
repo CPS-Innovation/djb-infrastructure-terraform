@@ -4,6 +4,8 @@ trigger:
     include:
       - 'main'
 
+pr: none
+
 pool: 'DJB PreProd Pool'
 
 jobs:
