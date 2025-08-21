@@ -58,3 +58,9 @@ variable "rt_djb_name" {
   type        = string
   description = " The name of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created"
 }
+
+variable "private_dns_zones" {
+  type        = set(string)
+  description = "A set of private DNS zone names to be created."
+  default     = []
+}
