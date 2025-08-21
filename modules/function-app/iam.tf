@@ -1,7 +1,7 @@
 resource "azurerm_role_assignment" "sa" {
-  for_each = toset(var.sa_roles)
+  for_each = var.sa_roles
 
   scope                = var.sa_id
-  role_definition_name = each.value.role
+  role_definition_name = each.value
   principal_id         = azurerm_linux_function_app.fa.id
 }

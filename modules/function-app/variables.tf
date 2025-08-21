@@ -29,8 +29,8 @@ variable "sa_id" {
 }
 
 variable "sa_roles" {
-  type        = list(string)
-  description = "A list of roles to assign to the function app for the storage account scope."
+  type        = set(string)
+  description = "A set of role definition names to assign to the function app for the storage account scope."
 }
 
 variable "asp_id" {
