@@ -9,6 +9,11 @@ variable "virtual_network_name" {
   description = "The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created"
 }
 
+variable "virtual_network_id" {
+  type        = string
+  description = "The id of the virtual network to link to the private dns zone."
+}
+
 variable "subnets" {
   type = map(object(
     {
@@ -60,6 +65,6 @@ variable "route_table_id" {
 }
 
 variable "private_dns_zones" {
-  type        = set(string)
-  description = "A set of private DNS zone names to be created."
+  type        = map(string)
+  description = "A map of subresource names to their respective private DNS zone names. e.g. { sites = \"privatelink.azurewebsites.net\" }"
 }

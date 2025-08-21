@@ -16,9 +16,10 @@ subnets = {
 }
 
 ######################  /*dns*/  ######################
-private_dns_zones = [
-  "privatelink.azurewebsites.net"
-]
+private_dns_zones = {
+  sites = "privatelink.azurewebsites.net"
+}
+
 
 ######################  /*nsg*/ ######################
 nsg_name                = "djb-nsg"
