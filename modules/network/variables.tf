@@ -66,7 +66,7 @@ variable "security_rule_protocol" {
 
 variable "route_table_id" {
   type        = string
-  description = " The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created"
+  description = "The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created"
 }
 
 variable "private_dns_zones" {
