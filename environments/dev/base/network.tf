@@ -16,6 +16,6 @@ module "network" {
   private_dns_zones       = var.private_dns_zones
 
   tags = {
-    environment = "preprod"
+    environment = var.environment
   }
 }
