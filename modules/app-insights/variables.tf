@@ -1,6 +1,6 @@
-variable "asp_name" {
+variable "environment" {
   type        = string
-  description = "Specifies the name of the App Service Plan component. Changing this forces a new resource to be created."
+  description = "The deployment environment."
 }
 
 variable "location" {

@@ -1,3 +1,5 @@
+environment = "preprod"
+
 ######################  /*subnet*/  ######################
 vnet_rg   = "rg-djb-preprod"
 vnet_name = "vn-djb-preprod" #created by the architet team
@@ -19,7 +21,6 @@ subnets = {
 private_dns_zones = {
   sites = "privatelink.azurewebsites.net"
 }
-
 
 ######################  /*nsg*/ ######################
 nsg_name                = "djb-nsg"

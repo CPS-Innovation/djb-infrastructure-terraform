@@ -4,4 +4,6 @@ resource "azurerm_service_plan" "service_plan" {
   location            = var.location
   os_type             = "Linux"
   sku_name            = "B2"
+
+  tags = var.tags
 }

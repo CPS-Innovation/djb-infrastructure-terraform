@@ -14,4 +14,8 @@ module "network" {
   security_rule_protocol  = var.security_rule_protocol
   security_rule_direction = var.security_rule_direction
   private_dns_zones       = var.private_dns_zones
+
+  tags = {
+    environment = var.environment
+  }
 }
