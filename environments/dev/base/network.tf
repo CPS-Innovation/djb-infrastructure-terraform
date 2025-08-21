@@ -1,7 +1,8 @@
-module "dev_network" {
+module "network" {
   source               = "../../../modules/network"
   vnet_rg              = var.vnet_rg
   virtual_network_name = data.azurerm_virtual_network.vnet-djb-preprod.name
+  virtual_network_id   = data.azurerm_virtual_network.vnet-djb-preprod.id
   subnets              = var.subnets
 
   nsg_name                = var.nsg_name

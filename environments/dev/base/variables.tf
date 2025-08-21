@@ -60,7 +60,7 @@ variable "rt_djb_name" {
 }
 
 variable "private_dns_zones" {
-  type        = set(string)
-  description = "A set of private DNS zone names to be created."
-  default     = []
+  type        = map(string)
+  description = "A map of subresource names to their respective private DNS zone names. e.g. { sites = \"privatelink.azurewebsites.net\" }"
+  default     = {}
 }
