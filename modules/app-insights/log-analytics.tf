@@ -4,4 +4,6 @@ resource "azurerm_log_analytics_workspace" "law" {
   resource_group_name = var.main_rg_name
   sku                 = "PerGB2018"
   retention_in_days   = 60
+
+  tags = var.tags
 }

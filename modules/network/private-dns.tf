@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 resource "azurerm_private_dns_zone" "dns" {
-=======
-resource "azurerm_private_dns_zone" "example" {
->>>>>>> 30e261a (add private dns zones to network)
   for_each            = var.private_dns_zones
   name                = each.value
   resource_group_name = var.vnet_rg
