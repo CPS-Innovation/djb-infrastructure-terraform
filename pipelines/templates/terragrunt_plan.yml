@@ -25,12 +25,12 @@ jobs:
 
     steps:
       - bash: |
-          displayName: InstallTerragruntAndTools
           wget https://github.com/gruntwork-io/terragrunt/releases/latest/download/terragrunt_linux_amd64
           mv terragrunt_linux_amd64 terragrunt
           chmod +x terragrunt
           sudo mv terragrunt /usr/local/bin
           sudo apt-get install zip -y
+        displayName: InstallTerragruntAndTools
 
       - task: ms-devlabs.custom-terraform-tasks.custom-terraform-installer-task.TerraformInstaller@0
         displayName: TerraformInstall
@@ -60,7 +60,7 @@ jobs:
 
       - bash: |
           terraform fmt
-          terragrunt fmt
+          terragrunt run -- fmt
         displayName: "terraform | fmt scan"
         workingDirectory: '$(System.DefaultWorkingDirectory)/environments/${{parameters.environment}}/${{parameters.module}}'
 
@@ -73,7 +73,7 @@ jobs:
           terraform init
           terragrunt init
           terraform validate
-        displayName: Terraform > Validate Config and init
+        displayName: Terraform | Validate Config and init
         workingDirectory: '$(System.DefaultWorkingDirectory)/environments/${{parameters.environment}}/${{parameters.module}}'
 
       - bash: |
