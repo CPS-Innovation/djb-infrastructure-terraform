@@ -11,4 +11,6 @@ resource "azurerm_private_dns_zone_virtual_network_link" "dns" {
   resource_group_name   = var.vnet_rg
   private_dns_zone_name = each.value
   virtual_network_id    = var.virtual_network_id
+
+  depends_on = [azurerm_private_dns_zone.dns]
 }
