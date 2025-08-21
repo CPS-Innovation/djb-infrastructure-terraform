@@ -60,7 +60,7 @@ jobs:
 
       - bash: |
           terraform fmt
-          terragrunt fmt
+          terragrunt run -- fmt
         displayName: "terraform | fmt scan"
         workingDirectory: '$(System.DefaultWorkingDirectory)/environments/${{parameters.environment}}/${{parameters.module}}'
 
