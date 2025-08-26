@@ -1,7 +1,10 @@
+data "azurerm_client_config" "current" {}
+
 data "azurerm_private_dns_zone" "dns" {
   for_each = {
     blob  = "privatelink.blob.core.windows.net"
     sites = "privatelink.azurewebsites.net"
+    vault = "privatelink.vaultcore.azure.net"
   }
 
   name                = each.value
