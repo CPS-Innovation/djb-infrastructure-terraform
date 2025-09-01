@@ -33,6 +33,11 @@ variable "sa_roles" {
   description = "A set of role definition names to assign to the function app for the storage account scope."
 }
 
+variable "kv_id" {
+  type        = string
+  description = "The resource id of the key vault holding the app's sensitive variable values."
+}
+
 variable "asp_id" {
   type        = string
   description = "The resource id of the App Service Plan within which the function app runs."

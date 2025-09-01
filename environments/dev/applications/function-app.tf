@@ -18,6 +18,7 @@ module "fa" {
     "Storage Blob Data Owner",
     "Storage Table Data Contributor"
   ]
+  kv_id = module.kv.kv_id
 
   tags = local.tags
 }
