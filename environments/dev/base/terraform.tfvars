@@ -20,6 +20,7 @@ subnets = {
 ######################  /*dns*/  ######################
 private_dns_zones = {
   sites = "privatelink.azurewebsites.net"
+  vault = "privatelink.vaultcore.azure.net"
 }
 
 ######################  /*nsg*/ ######################
