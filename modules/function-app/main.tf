@@ -37,6 +37,7 @@ resource "azurerm_linux_function_app" "fa" {
   lifecycle {
     ignore_changes = [
       app_settings,
+      functions_extension_version,
       tags
     ]
   }
