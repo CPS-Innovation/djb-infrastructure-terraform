@@ -1,4 +1,4 @@
-data "azurerm_virtual_network" "vnet-djb-preprod" {
+data "azurerm_virtual_network" "vnet-djb" {
   name                = var.vnet_name
   resource_group_name = var.vnet_rg
 }

@@ -23,20 +23,28 @@ resource "azurerm_subnet" "subnets" {
 
 # Network Security Group
 resource "azurerm_network_security_group" "nsg" {
+  count               = var.create_nsg ? 1 : 0
   name                = var.nsg_name
   location            = var.location
   resource_group_name = var.main_rg_name
 
-  security_rule {
-    name                       = var.security_rule_name
-    priority                   = var.security_rule_priority
-    direction                  = var.security_rule_direction
-    access                     = "Allow"
-    protocol                   = var.security_rule_protocol
-    source_port_range          = "*"
-    destination_port_range     = "*"
-    source_address_prefixes    = ["10.7.152.0/23", "10.7.150.0/23"]
-    destination_address_prefix = "*"
+  dynamic "security_rule" {
+    for_each = var.nsg_rules
+    content {
+      name                         = security_rule.key
+      priority                     = security_rule.value.priority
+      direction                    = security_rule.value.direction
+      access                       = security_rule.value.access
+      protocol                     = security_rule.value.protocol
+      source_port_range            = security_rule.value.source_port_range != null ? security_rule.value.source_port_range : null
+      source_port_ranges           = security_rule.value.source_port_range == null ? security_rule.value.source_port_ranges : null
+      destination_port_range       = security_rule.value.destination_port_range != null ? security_rule.value.destination_port_range : null
+      destination_port_ranges      = security_rule.value.destination_port_range == null ? security_rule.value.destination_port_ranges : null
+      source_address_prefix        = security_rule.value.source_address_prefix != null ? security_rule.value.source_address_prefix : null
+      source_address_prefixes      = security_rule.value.source_address_prefix == null ? security_rule.value.source_address_prefixes : null
+      destination_address_prefix   = security_rule.value.destination_address_prefix != null ? security_rule.value.destination_address_prefix : null
+      destination_address_prefixes = security_rule.value.destination_address_prefix == null ? security_rule.value.destination_address_prefixes : null
+    }
   }
 
   tags = var.tags
@@ -46,11 +54,10 @@ resource "azurerm_subnet_network_security_group_association" "nsg_djb_subnet_ass
   for_each = var.subnets
 
   subnet_id                 = azurerm_subnet.subnets[each.key].id
-  network_security_group_id = azurerm_network_security_group.nsg.id
+  network_security_group_id = var.create_nsg ? azurerm_network_security_group.nsg[0].id : data.azurerm_network_security_group.nsg[0].id
 
   depends_on = [
     azurerm_subnet.subnets,
-    azurerm_network_security_group.nsg
   ]
 }
 
