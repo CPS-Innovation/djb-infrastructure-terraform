@@ -1,30 +1,32 @@
 ---
 trigger:
   branches:
-    exclude:
-      - main
+    include:
+      - 'main'
   paths:
    include:
-    - environments/dev
+    - environments/staging
     - modules
+
+pr: none
 
 pool: 'DJB PreProd Pool'
 
 jobs:
-  - template: templates/terragrunt_plan.yml
+  - template: templates/terragrunt_apply.yml
     parameters:
-      environment: dev
+      environment: staging
       module: base
       subscription: "DJB PreProd (via service principal)"
       backend_storage_resource_group: "rg-djb-devops-dev"
-      backend_storage_account_name: "sadjbdevtfstate"
+      backend_storage_account_name: "sadjbstagingtfstate"
       application_name: "base"
 
-  - template: templates/terragrunt_plan.yml
+  - template: templates/terragrunt_apply.yml
     parameters:
-      environment: dev
+      environment: staging
       module: applications
       subscription: "DJB PreProd (via service principal)"
       backend_storage_resource_group: "rg-djb-devops-dev"
-      backend_storage_account_name: "sadjbdevtfstate"
+      backend_storage_account_name: "sadjbstagingtfstate"
       application_name: "applications"
