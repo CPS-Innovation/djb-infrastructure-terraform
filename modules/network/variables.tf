@@ -59,6 +59,12 @@ variable "nsg_name" {
   description = "Specifies the name of the network security group."
 }
 
+variable "nsg_id" {
+  type        = string
+  description = "The resource ID of an existing NSG. Must be defined when var.create_nsg == false."
+  default     = ""
+}
+
 variable "nsg_rules" {
   type = map(object({
     priority                     = number

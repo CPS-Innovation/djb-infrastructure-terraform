@@ -54,7 +54,7 @@ resource "azurerm_subnet_network_security_group_association" "nsg_djb_subnet_ass
   for_each = var.subnets
 
   subnet_id                 = azurerm_subnet.subnets[each.key].id
-  network_security_group_id = var.create_nsg ? azurerm_network_security_group.nsg[0].id : data.azurerm_network_security_group.nsg[0].id
+  network_security_group_id = var.create_nsg ? azurerm_network_security_group.nsg[0].id : var.nsg_id
 
   depends_on = [
     azurerm_subnet.subnets,
