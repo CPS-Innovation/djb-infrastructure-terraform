@@ -6,6 +6,7 @@ module "network" {
   subnets              = var.subnets
 
   create_nsg        = false
+  nsg_id            = data.azurerm_network_security_group.nsg.id
   nsg_name          = var.nsg_name
   location          = var.location
   route_table_id    = data.azurerm_route_table.djb-rt.id
