@@ -22,11 +22,11 @@ jobs:
       backend_storage_account_name: "sadjbstagingtfstate"
       application_name: "base"
 
-  # - template: templates/terragrunt_apply.yml
-  #   parameters:
-  #     environment: staging
-  #     module: applications
-  #     subscription: "DJB PreProd (via service principal)"
-  #     backend_storage_resource_group: "rg-djb-devops-dev"
-  #     backend_storage_account_name: "sadjbstagingtfstate"
-  #     application_name: "applications"
+  - template: templates/terragrunt_apply.yml
+    parameters:
+      environment: staging
+      module: applications
+      subscription: "DJB PreProd (via service principal)"
+      backend_storage_resource_group: "rg-djb-devops-dev"
+      backend_storage_account_name: "sadjbstagingtfstate"
+      application_name: "applications"
