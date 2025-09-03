@@ -6,6 +6,7 @@ trigger:
   paths:
    include:
     - environments/dev
+    - modules
 
 pool: 'DJB PreProd Pool'
 
@@ -15,7 +16,7 @@ jobs:
       environment: dev
       module: base
       subscription: "DJB PreProd (via service principal)"
-      backend_storage_resource_group: "rg-djb-dev"
+      backend_storage_resource_group: "rg-djb-devops-dev"
       backend_storage_account_name: "sadjbdevtfstate"
       application_name: "base"
 
