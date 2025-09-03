@@ -24,11 +24,7 @@ private_dns_zones = {
 }
 
 ######################  /*nsg*/ ######################
-nsg_name                = "djb-nsg"
-location                = "UKSouth"
-main_rg_name            = "rg-djb-preprod"
-rt_djb_name             = "RT-djb-preprod"
-security_rule_name      = "AllowAmzWorkspcCustom443Inbound"
-security_rule_priority  = 100
-security_rule_protocol  = "Tcp"
-security_rule_direction = "Inbound"
+nsg_name     = "nsg-djb-preprod"
+location     = "UKSouth"
+main_rg_name = "rg-djb-preprod"
+rt_djb_name  = "RT-djb-preprod"
