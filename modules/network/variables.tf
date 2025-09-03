@@ -3,11 +3,6 @@ variable "location" {
   description = "The location of the virtual network"
 }
 
-variable "tags" {
-  type        = map(string)
-  description = "A map of tag names to values."
-}
-
 variable "private_dns_zones" {
   type        = map(string)
   description = "A map of subresource names to their respective private DNS zone names. e.g. { sites = \"privatelink.azurewebsites.net\" }"
@@ -88,4 +83,10 @@ variable "nsg_rules" {
       destination_address_prefix = "*"
     }
   }
+}
+
+variable "tags" {
+  type        = map(string)
+  description = "A map of tag names to values."
+  default     = {}
 }

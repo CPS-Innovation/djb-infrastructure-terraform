@@ -11,8 +11,4 @@ module "network" {
   location          = var.location
   route_table_id    = data.azurerm_route_table.djb-rt.id
   private_dns_zones = var.private_dns_zones
-
-  tags = {
-    environment = var.environment
-  }
 }

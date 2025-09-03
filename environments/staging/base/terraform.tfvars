@@ -1,5 +1,3 @@
-environment = "preprod"
-
 ######################  /*subnet*/  ######################
 vnet_rg     = "rg-djb-preprod"
 vnet_name   = "vn-djb-preprod" #created by the architet team
