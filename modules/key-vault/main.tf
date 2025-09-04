@@ -12,5 +12,10 @@ resource "azurerm_key_vault" "kv" {
 
   sku_name = var.kv_sku
 
+  network_acls {
+    bypass         = "None"
+    default_action = "Deny"
+  }
+
   tags = var.tags
 }
