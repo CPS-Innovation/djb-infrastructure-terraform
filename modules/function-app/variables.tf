@@ -53,6 +53,12 @@ variable "ai_connection_string" {
   description = "The connection string for the application insights instance to associate with the function app."
 }
 
+variable "always_on" {
+  type        = bool
+  description = "Determines whether the always_on feature is enabled for the function app."
+  default     = false
+}
+
 variable "cors_allowed_origins" {
   type        = list(string)
   description = "A list of origins that should be allowed to make cross-origin calls."

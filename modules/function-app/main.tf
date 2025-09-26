@@ -15,6 +15,7 @@ resource "azurerm_linux_function_app" "fa" {
     vnet_route_all_enabled                 = true
     application_insights_connection_string = var.ai_connection_string
     ftps_state                             = "FtpsOnly"
+    always_on                              = var.always_on
 
     application_stack {
       dotnet_version              = "8.0"
